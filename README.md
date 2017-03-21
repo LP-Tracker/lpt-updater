@@ -1,5 +1,5 @@
 LPT-Updater
-==========
+===========
 
 The updater subsystem for LP-Tracker
 
