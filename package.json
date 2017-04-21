@@ -1,0 +1,19 @@
+{
+  "name": "lpt-updater",
+  "version": "0.0.0",
+  "description": "The updater for LP-Tracker",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LP-Tracker/lpt-updater.git"
+  },
+  "author": "Wyatt Calandro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LP-Tracker/lpt-updater/issues"
+  },
+  "homepage": "https://github.com/LP-Tracker/lpt-updater#readme"
+}
