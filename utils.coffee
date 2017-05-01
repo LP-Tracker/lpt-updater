@@ -1,6 +1,6 @@
 request = require 'request'
 path = require 'path'
-unzip = require 'unzip2'
+decompress = require 'decompress'
 fs = require 'fs'
 util = require 'util'
 # Download and extract the update
@@ -11,9 +11,8 @@ module.exports.downloadUpdate = (url, cb) ->
     ).pipe(fs.createWriteStream path.join __dirname, '../../../', 'update.zip')
     .on('finish', ->
       util.log "Finished downloading update, extracting..."
-      fs.createReadStream(path.join __dirname, '../../../', 'update.zip')
-      .pipe(unzip.Extract {path: path.join __dirname, '../../../', 'update/'})
-      .on 'finish', ->
+      decompress (path.join __dirname, '../../../', 'update.zip'), (path.join __dirname, '../../../', 'update/'), (err) ->
+        if err then throw err
         util.log "Extract complete!"
         cb()
       )
