@@ -1,6 +1,6 @@
 request = require 'request'
 path = require 'path'
-unzip = require 'unzip'
+unzip = require 'unzip2'
 fs = require 'fs'
 util = require 'util'
 # Download and extract the update
