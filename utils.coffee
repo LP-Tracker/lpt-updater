@@ -17,6 +17,7 @@ module.exports.downloadUpdate = (url, cb) ->
       ).catch((err)->
         throw err
       )
+  )  
 # Cleans up all update files, accepts a callback
 module.exports.cleanUp = (cb) ->
   util.log "Cleaning up update"
