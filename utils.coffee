@@ -8,7 +8,7 @@ module.exports.downloadUpdate = (url, cb) ->
   util.log "Downloading update from: #{url}"
   request(url).on('error', (err) ->
     throw err
-    ).pipe(path.join '../../../', 'update.zip')
+    ).pipe(fs.createWriteStream path.join '../../../', 'update.zip')
     .on('finish', ->
       util.log "Finished downloading update, extracting..."
       fs.createReadStream(path.join '../../../', 'update.zip')
