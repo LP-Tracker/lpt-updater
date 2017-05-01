@@ -11,10 +11,11 @@ module.exports.downloadUpdate = (url, cb) ->
     ).pipe(fs.createWriteStream path.join __dirname, '../../../', 'update.zip')
     .on('finish', ->
       util.log "Finished downloading update, extracting..."
-      decompress (path.join __dirname, '../../../', 'update.zip'), (path.join __dirname, '../../../', 'update/'), (err) ->
-        if err then throw err
+      decompress((path.join __dirname, '../../../', 'update.zip'), (path.join __dirname, '../../../', 'update/')).then(->
         util.log "Extract complete!"
         cb()
+      ).catch((err)->
+        throw err
       )
 # Cleans up all update files, accepts a callback
 module.exports.cleanUp = (cb) ->
