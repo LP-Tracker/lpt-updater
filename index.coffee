@@ -34,7 +34,7 @@ module.exports.updateBootloader = (version) ->
           rimraf (path.join __dirname, "../../", 'bootloader', 'latest'), (err) ->
             if err then throw err
             util.log "Deleted! Copying over update...."
-            ncp '../../../update/', (path.join __dirname, "../../", 'bootloader', 'latest'), (err) ->
+            ncp (path.join __dirname, '../../../update/'), (path.join __dirname, "../../", 'bootloader', 'latest'), (err) ->
               if err then throw err
               util.log "Copied! Cleaning up...."
               utils.cleanUp ->
