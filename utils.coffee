@@ -14,11 +14,13 @@ module.exports.downloadUpdate = (url, cb) ->
       util.log "Finished downloading update, extracting..."
       decompress((path.join __dirname, '../../../', 'update.zip'), (path.join __dirname, '../../../', 'update'), {
         map: (file) ->
-          paths = file.path.split(path.sep)
+          paths = file.path.split('/')
           paths.shift()
           file.path = path.join.apply null, paths
           return file
-      }).then(->
+      }).catch((err) ->
+        throw err
+      ).then(->
         util.log "Extract complete!"
         cb()
       )
