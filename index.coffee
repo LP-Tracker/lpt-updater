@@ -109,6 +109,6 @@ module.exports.updateApplication = (version) ->
               if err then throw err
               util.log "Copied! Cleaning up...."
               utils.cleanUp ->
-                util.log "Cleaned up! Finished updating bootloader. Restarting the program..."
+                util.log "Cleaned up! Finished updating application. Restarting the program..."
                 app.relaunch()
                 app.exit()
